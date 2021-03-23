@@ -1,0 +1,9 @@
+venv/
+.git/
+.cache
+*.md
+*.sqlite3
+.env
+.env.prod
+.env.prod.db
+*.pyc
