@@ -7,7 +7,7 @@ from store.models import Product
 
 class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    items = models.ManyToManyField('CartItem')
+    items = models.ManyToManyField('OrderItem')
     created = models.DateTimeField(auto_now_add=True)
     ordered = models.DateTimeField()
     completed = models.BooleanField(default=False)

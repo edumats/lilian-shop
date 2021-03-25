@@ -8,9 +8,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: blog
+      - POSTGRES_USER=edumats
+      - POSTGRES_PASSWORD=testing123
+      - POSTGRES_DB=lilian-store
 
   web:
     build: .

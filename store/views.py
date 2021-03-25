@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import Hantem
+from .serializers import HantemSerializer
+
+
+class HantemListView(generics.ListCreateAPIView):
+    queryset = Hantem.objects.all()
+    serializer_class = HantemSerializer
+
+
+class HantemDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Hantem.objects.all()
+    serializer_class = HantemSerializer
+    lookup_field = 'slug'
