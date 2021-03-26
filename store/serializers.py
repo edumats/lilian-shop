@@ -2,8 +2,9 @@ from rest_framework import serializers
 from .models import Hantem
 
 
-class HantemSerializer(serializers.ModelSerializer):
+class HantemSerializer(serializers.HyperlinkedModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
+
     class Meta:
         model = Hantem
         fields = '__all__'
-        lookup_field = 'slug'

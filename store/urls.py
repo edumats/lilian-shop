@@ -1,7 +1,11 @@
-from django.urls import path
-from .views import HantemDetailView, HantemListView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+from store import views
+
+router = DefaultRouter()
+router.register(r'hantems', views.HantemViewSet)
 
 urlpatterns = [
-    path('product/<slug:slug>', HantemDetailView.as_view(), name='product-detail'),
-    path('products/', HantemListView.as_view(), name='hantem-list'),
+    path('', include(router.urls))
 ]
